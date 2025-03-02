@@ -1,10 +1,7 @@
 resource "google_project_service" "name" {
   for_each = toset([
-    "bigquery.googleapis.com",
-    "logging.googleapis.com",
+    "sql-component.googleapis.com",
     "run.googleapis.com",
-    "serviceusage.googleapis.com",
-    "storage.googleapis.com",
   ])
 
   project = var.project
