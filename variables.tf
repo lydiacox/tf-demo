@@ -3,6 +3,11 @@ variable "project" {
   default = "programmable-demo-2025"
 }
 
+variable "name" {
+  type = string
+  default = "programmable-demo"
+}
+
 variable "region" {
   type    = string
   default = "australia-southeast2"
