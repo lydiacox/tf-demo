@@ -1,8 +1,10 @@
 resource "google_project_service" "name" {
   for_each = toset([
-    "compute.googleapis.com",
-    "iam.googleapis.com",
-    "storage.googleapis.com"
+    "bigquery.googleapis.com",
+    "logging.googleapis.com",
+    "run.googleapis.com",
+    "serviceusage.googleapis.com",
+    "storage.googleapis.com",
   ])
 
   project = var.project
@@ -15,7 +17,7 @@ resource "google_compute_network" "demo" {
   auto_create_subnetworks = false
 }
 
-resource "google_compute_subnetwork" "au_se2" {
+resource "google_compute_subnetwork" "demo_au_se2" {
   name          = "sb-demo-au-se2"
   project       = var.project
   region        = var.region
@@ -24,7 +26,9 @@ resource "google_compute_subnetwork" "au_se2" {
 }
 
 resource "google_compute_instance" "demo" {
-  name         = "vm-demo"
+  count = var.vm_count
+
+  name         = "vm-demo-${count.index}"
   project      = var.project
   machine_type = "e2-micro"
   zone         = var.zone
@@ -38,7 +42,7 @@ resource "google_compute_instance" "demo" {
   }
 
   network_interface {
-    subnetwork = google_compute_subnetwork.au_se2.id
+    subnetwork = google_compute_subnetwork.demo_au_se2.id
   }
 }
 
