@@ -8,5 +8,5 @@ terraform {
 provider "google" {
   project = "programmable-demo-2025"
   region  = "australia-southeast2"
-  zone = "australia-southeast2-b"
+  zone    = "australia-southeast2-b"
 }
