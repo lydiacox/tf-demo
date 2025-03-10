@@ -10,3 +10,7 @@ provider "google" {
   region  = "australia-southeast2"
   zone    = "australia-southeast2-b"
 }
+
+# provider "aws" {
+#   region = "ap-southeast-4"
+# }
