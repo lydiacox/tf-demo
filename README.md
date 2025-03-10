@@ -16,9 +16,11 @@ terraform destroy
 ## Outputs
 | Name | Description |
 | ---- | ----------- |
+| bucket_ids | List of storage bucket IDs. |
+| bucket_self_links | List of storage bucket self links. |
+| compute_instance_ids | Compute instance ID. |
+| compute_instance_self_links | Compute instance self link. |
 | network_id | Network ID |
 | network_self_link | Network self link. |
 | subnetwork_id | Subnetwork ID. |
 | subnetwork_self_link | Subnetwork self link. |
-| compute_instance_ids | List of compute instance IDs. |
-| compute_instance_self_links | List of compute instance self links. |
