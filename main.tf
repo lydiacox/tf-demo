@@ -1,13 +1,3 @@
-resource "google_project_service" "self" {
-  for_each = toset([
-    "sql-component.googleapis.com",
-    "run.googleapis.com",
-  ])
-
-  project = var.project
-  service = each.key
-}
-
 resource "google_compute_instance" "self" {
   count = var.vm_count
 
@@ -15,6 +5,7 @@ resource "google_compute_instance" "self" {
   project      = var.project
   machine_type = "e2-micro"
   zone         = var.zone
+  allow_stopping_for_update = true
 
   boot_disk {
     initialize_params {
@@ -26,5 +17,10 @@ resource "google_compute_instance" "self" {
 
   network_interface {
     subnetwork = google_compute_subnetwork.self.id
+  }
+
+  service_account {
+    email = google_service_account.self.email
+    scopes = ["cloud-platform"]
   }
 }
