@@ -22,12 +22,3 @@ resource "google_compute_instance" "self" {
     scopes = ["cloud-platform"]
   }
 }
-
-resource "google_storage_bucket" "self" {
-  count = var.bk_count
-
-  name                        = "bk-${var.name}-${count.index}"
-  location                    = var.region
-  project                     = var.project
-  uniform_bucket_level_access = true
-}

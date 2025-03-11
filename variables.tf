@@ -1,7 +1,7 @@
 variable "bk_count" {
   type        = number
   description = "The number of buckets you want to create."
-  default     = 2
+  default     = 1
 }
 
 variable "name" {
