@@ -23,7 +23,7 @@ resource "google_compute_instance" "self" {
   }
 }
 
-import {
-  to = google_compute_instance.self
-  id = "projects/programmable-demo-2025/zones/australia-southeast2-b/instances/vm-programmable-demo"
-}
+# import {
+#   to = google_compute_instance.self
+#   id = "projects/programmable-demo-2025/zones/australia-southeast2-b/instances/vm-programmable-demo"
+# }
